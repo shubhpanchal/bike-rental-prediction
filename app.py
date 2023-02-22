@@ -1,6 +1,7 @@
 from flask import Flask
 from rentals.logger import logging
 from rentals.exception import RentalException
+import sys
 
 app = Flask(__name__)
 
