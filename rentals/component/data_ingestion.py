@@ -30,7 +30,7 @@ class DataIngestion:
 
             logging.info(f"Downloading File from :[{download_url}] into : [{zip_file_path}]")
             urllib.request.urlretrieve(download_url,zip_file_path)
-            logging.info(f"FIle : [{zip_file_path}] has been successfully downloaded...")
+            logging.info(f"File : [{zip_file_path}] has been successfully downloaded...")
             return zip_file_path
         except Exception as e:
             raise RentalException(e, sys) from e

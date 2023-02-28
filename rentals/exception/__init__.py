@@ -5,7 +5,7 @@ class RentalException(Exception):
     
     def __init__(self, error_message: str, error_detail: sys):
         super().__init__(error_message)
-        self.error_message = RentalException.get_detailed_error_message(error_message, error_detail)
+        self.error_message = self.get_detailed_error_message(error_message, error_detail)
 
 
     @staticmethod

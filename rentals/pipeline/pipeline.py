@@ -1,10 +1,8 @@
 from collections import namedtuple
 from datetime import datetime
-import uuid
 from rentals.config.configuration import Configuration
 from rentals.logger import logging, get_log_file_name
 from rentals.exception import RentalException
-from threading import Thread
 from typing import List
 
 from multiprocessing import Process
@@ -13,12 +11,11 @@ from rentals.entity.config_entity import DataIngestionConfig, TrainingPipelineCo
 from rentals.component.data_ingestion import DataIngestion
 import os, sys
 
-class Pipeline(Thread):
+class Pipeline():
 
     def __init__(self, config : Configuration)-> None:
         try:
             os.makedirs(config.training_pipeline_config.artifact_dir, exist_ok=True)
-            super().__init__(daemon=False, name = "pipeline")
             self.config = config
         except Exception as e:
             raise RentalException(e, sys) from e
